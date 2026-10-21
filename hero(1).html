@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رحلة البطل</title>
+<link rel="manifest" href="hero-manifest.json">
+<meta name="theme-color" content="#6a47f0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="رحلة البطل">
+<link rel="icon" type="image/png" href="hero-icon-192.png">
+<link rel="apple-touch-icon" href="hero-apple-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Lalezar&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8f0dc;--bg2:#efe1bf;--cd:#fffaec;--ink:#2a1f45;--mut:#7f7392;--ln:#e9dcb9;--gold:#f0a800;--pri:#6a47f0;--up:#17a974;--dn:#ec4f4f;--q:#ef5b5b;--i:#3b82f6;--r:#a855f7;--a:#0fb5a6;--sh:0 8px 20px rgba(90,55,130,.14);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0a21;--bg2:#1b1338;--cd:#1f1741;--ink:#f6eeff;--mut:#aa9dcc;--ln:#34295c;--sh:0 8px 22px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#0f0a21;--bg2:#1b1338;--cd:#1f1741;--ink:#f6eeff;--mut:#aa9dcc;--ln:#34295c;--sh:0 8px 22px rgba(0,0,0,.45)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font:500 15px/1.6 Cairo,Tahoma,sans-serif;color:var(--ink);background:var(--bg) radial-gradient(circle at 100% -5%,var(--bg2),transparent 50%);min-height:100%}
+.w{max-width:520px;margin:auto;padding:12px 14px 112px}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+h1{font:400 30px/1 Lalezar,Cairo;margin:0}
+h3{font:400 24px Lalezar,Cairo;margin:0 0 8px}
+.hero{position:relative;overflow:hidden;color:#fff;border-radius:28px;padding:18px;background:linear-gradient(140deg,#4b2fd6,#7b52f3 55%,#e46aa0);box-shadow:var(--sh)}
+.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.12);top:-50px;left:-40px}
+.hr{display:flex;align-items:center;gap:12px;margin-bottom:14px;position:relative;z-index:1}
+.hr>div:nth-child(2){flex:1}
+.bd{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font:400 34px Lalezar;color:#4a2b00;background:radial-gradient(circle at 30% 28%,#fff3b8,#f6b800 60%,#c98200);box-shadow:0 0 0 4px rgba(255,255,255,.35),0 8px 16px rgba(0,0,0,.3)}
+.tt{font:400 28px/1.1 Lalezar}
+.sb{font-size:13px;opacity:.9}
+.sk{background:rgba(255,255,255,.2);border-radius:16px;padding:6px 12px;font-weight:900;text-align:center}
+.sk small{display:block;font-size:12px}
+.bar{height:12px;border-radius:9px;background:rgba(255,255,255,.28);overflow:hidden;position:relative;z-index:1}
+.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#ffd76a,#ffab00);transition:width .7s cubic-bezier(.2,.9,.3,1)}
+.bar.g{background:var(--bg2);margin:8px 0}
+.bar.g i{background:linear-gradient(90deg,var(--pri),#c084fc)}
+.xl{display:flex;justify-content:space-between;font-size:12px;margin-top:5px;position:relative;z-index:1}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;position:relative;z-index:1}
+.cs{background:rgba(255,255,255,.17);border-radius:16px;padding:8px 4px;text-align:center;font-size:12px}
+.cs span{font-size:22px;display:block;line-height:1.3}
+.cs b,.cs small{display:block}
+.bar.sm{height:6px;margin-top:5px}
+.sc{font:400 22px Lalezar,Cairo;margin:20px 4px 6px;display:flex;justify-content:space-between;align-items:center}
+.sc small{font:700 13px Cairo;color:var(--mut)}
+.t{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:8px 0;border-radius:18px;background:var(--cd);border:1px solid var(--ln);border-inline-start:6px solid var(--s);box-shadow:var(--sh)}
+.tx{flex:1;min-width:0}
+.tx b{display:block;font-weight:700}
+.m{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
+.m i{font-style:normal;font-size:12px;font-weight:700;background:var(--bg2);border-radius:20px;padding:0 9px;color:var(--mut)}
+.ck{flex:none;width:38px;height:38px;border-radius:50%;border:2.5px solid var(--ln);background:var(--bg);color:transparent;font-size:19px;font-weight:900;cursor:pointer}
+.t.d .ck{background:var(--up);border-color:var(--up);color:#fff;animation:pop .4s}
+.t.d .tx b{text-decoration:line-through;opacity:.5}
+@keyframes pop{50%{transform:scale(1.3) rotate(-8deg)}}
+.mo{border:0;background:transparent;color:var(--mut);font-size:20px;padding:6px;cursor:pointer}
+.sch{margin:12px 0;padding:11px;border-radius:18px;text-align:center;color:var(--mut);font-weight:900;border:1.5px dashed var(--ln);background:repeating-linear-gradient(45deg,var(--bg2),var(--bg2) 9px,transparent 9px,transparent 18px)}
+.b{border:0;border-radius:16px;padding:11px 20px;font:900 15px Cairo;color:#fff;background:linear-gradient(135deg,var(--pri),#9b6bff);box-shadow:0 5px 14px rgba(106,71,240,.38);cursor:pointer}
+.b.gh{background:var(--bg2);color:var(--ink);box-shadow:none}
+.b.dn{background:var(--dn);width:100%;margin-top:10px;box-shadow:none}
+.add{width:100%;margin-top:12px}
+.c{background:var(--cd);border:1px solid var(--ln);border-radius:22px;box-shadow:var(--sh);padding:14px;margin:12px 0}
+.c .t{box-shadow:none}
+.sh2{display:flex;align-items:center;gap:10px}
+.sh2>div{flex:1}
+.sh2 small{display:block;color:var(--mut)}
+.ic{font-size:30px;width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:var(--bg2)}
+.emp{text-align:center;font-size:44px}
+.emp p{font-size:15px;color:var(--mut);margin:6px 0 0}
+.nv{position:fixed;inset:auto 0 0 0;display:flex;justify-content:center;gap:6px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--cd);border-top:1px solid var(--ln);z-index:5}
+.nv button{flex:1;max-width:160px;border:0;border-radius:16px;padding:7px 4px;background:transparent;color:var(--mut);font:900 13px Cairo;cursor:pointer}
+.nv button span{display:block;font-size:22px;line-height:1.2}
+.nv button.on{background:var(--pri);color:#fff}
+#sh{position:fixed;inset:0;background:rgba(10,5,30,.55);display:none;align-items:flex-end;z-index:9}
+#sh.on{display:flex}
+.sp{width:100%;max-width:520px;margin:auto;background:var(--cd);border-radius:28px 28px 0 0;padding:20px 18px calc(18px + env(safe-area-inset-bottom,0px));max-height:90%;overflow:auto;animation:up .3s}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.rw{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+label{font-weight:700;font-size:13px;color:var(--mut)}
+input,select{width:100%;padding:10px 12px;border-radius:14px;border:1.5px solid var(--ln);background:var(--bg);color:var(--ink);font:inherit;margin:4px 0 10px}
+.cc{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.pl{display:flex;align-items:center;gap:5px;background:var(--bg2);padding:6px 12px;border-radius:20px;color:var(--ink)}
+.pl input{width:auto;margin:0}
+.ts{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:30px;font-weight:900;z-index:20;animation:up .3s;white-space:nowrap}
+.ts.big{background:linear-gradient(135deg,#ffd76a,#ff9d00);color:#4a2b00;font:400 22px Lalezar;padding:12px 24px;box-shadow:0 10px 30px rgba(255,160,0,.5)}
+.tr{display:flex;align-items:center;gap:14px}
+.ar{font:400 54px/1 Lalezar;width:70px;text-align:center}
+.up{color:var(--up)}.dnc{color:var(--dn)}.fl{color:var(--gold)}
+table{width:100%;border-collapse:collapse}
+td,th{padding:7px 4px;text-align:center;font-size:14px;border-bottom:1px solid var(--ln)}
+th{color:var(--mut);font-weight:700;font-size:12px}
+.ds{display:flex;height:16px;border-radius:9px;overflow:hidden;margin:8px 0}
+.lg{display:flex;flex-wrap:wrap;gap:10px;font-size:13px}
+ol{margin:6px 0 0;padding-inline-start:20px}
+li{margin:3px 0}
+.cel{background:linear-gradient(135deg,#ffe69a,#ffc23d);color:#4a2b00;font-weight:900;text-align:center}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="w" id="app"></div>
+<nav class="nv">
+<button data-a="tab" data-tab="t"><span>🏰</span>اليوم</button>
+<button data-a="tab" data-tab="k"><span>🌟</span>المهارات</button>
+<button data-a="tab" data-tab="s"><span>📈</span>الإحصائيات</button>
+</nav>
+<div id="sh"></div>
+<script>
+const K='rpgq2',$=s=>document.querySelector(s);
+const C={q:['قوة','💪','--q'],i:['ذكاء','🧠','--i'],r:['روح','🌙','--r'],a:['اجتماعي','🤝','--a']};
+let S=null;try{S=JSON.parse(localStorage.getItem(K))}catch(x){}
+S=S||{t:[
+{id:'t1',n:'تمارين التنفس',p:0,tm:'08:15',x:20,c:['r','q']},
+{id:'t2',n:'تمارين الكالسثنكس',p:1,tm:'08:30',x:50,c:['q']},
+{id:'t3',n:'دراسة السادس الإعدادي (4 ساعات)',p:1,tm:'09:30',x:50,c:['i']},
+{id:'t4',n:'الخروج والتواصل مع الناس',p:0,tm:'17:30',x:30,c:['a','r']},
+{id:'t5',n:'مشاهدة حلقة من سلسلة فهم التعافي',p:0,tm:'19:30',x:20,c:['r','i']},
+{id:'t6',n:'الكتابة',p:0,tm:'20:30',x:20,c:['r']},
+{id:'t7',n:'ساعة ترفيه (ألعاب أو شيء ممتع)',p:0,tm:'21:30',x:15,c:['r'],b:1},
+{id:'t8',n:'التغذية: ماء وبدون حلويات',p:0,tm:'',x:25,c:['q']}],d:{},k:[]};
+try{const th=localStorage.getItem('rpgth');if(th)document.documentElement.dataset.theme=th}catch(x){}
+const sv=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(x){}};
+const e=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sum=a=>a.reduce((s,v)=>s+v,0);
+const dk=(o=0)=>{const d=new Date();d.setDate(d.getDate()-o);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const wd=o=>{const d=new Date();d.setDate(d.getDate()-o);return d.toLocaleDateString('ar',{weekday:'short'})};
+const recs=()=>Object.values(S.d).flatMap(d=>Object.values(d));
+const dx=k=>sum(Object.values(S.d[k]||{}).map(r=>r.x));
+const lv=x=>{let l=1,n=150;while(x>=n){x-=n;l++;n=Math.round(n*1.1)}return{l,c:x,n}};
+const ttl=l=>['مبتدئ','متدرب','محارب','فارس','بطل','أسطورة'][[1,3,6,10,15,22].filter(v=>l>=v).length-1];
+const ft=t=>{if(!t)return'طوال اليوم';const[h,m]=t.split(':').map(Number);return(h%12||12)+':'+String(m).padStart(2,'0')+(h>=12?' م':' ص')};
+const total=()=>S.t.length+sum(S.k.map(k=>k.t.length));
+let tab='t',rs=0;
+
+function streak(){let s=0,last=-9;for(let i=0;i<400;i++){const ok=Object.values(S.d[dk(i)]||{}).some(r=>r.m);if(ok)s++;else if(i==0)continue;else{if(i-last<7)break;last=i}}return[s,last<0||last>6]}
+
+function toast(m,big){const t=document.createElement('div');t.className='ts'+(big?' big':'');t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),big?2800:1500)}
+
+function tg(id){const k=dk(),d=S.d[k]=S.d[k]||{},b=lv(sum(recs().map(r=>r.x))).l;
+ if(d[id])delete d[id];else{let r,t=S.t.find(t=>t.id===id);
+  if(t)r={x:t.x,c:t.c,m:t.p};else for(const s of S.k){if(s.t.find(u=>u.id===id))r={x:20,c:[],k:s.id,m:0}}
+  if(!r)return;d[id]=r;toast('+'+r.x+' نقطة خبرة ✨')}
+ sv();const a=lv(sum(recs().map(r=>r.x))).l;if(a>b)toast('🎉 المستوى '+a+': '+ttl(a),1);render()}
+
+const row=t=>{const dn=!!(S.d[dk()]||{})[t.id],col=t.x<=20?'--up':t.x<=30?'--gold':'--dn';
+return `<div class="t${dn?' d':''}" style="--s:var(${col})"><button class="ck" data-a="tg" data-id="${t.id}" aria-label="إنجاز">✓</button><div class="tx"><b>${e(t.n)}</b><span class="m"><i>🕗 ${ft(t.tm)}</i><i>+${t.x}</i>${t.b?'<i>🎁 مكافأة اليوم</i>':''}${t.c.map(c=>`<i style="color:var(${C[c][2]})">${C[c][1]}</i>`).join('')}</span></div><button class="mo" data-a="ed" data-id="${t.id}" aria-label="تعديل">⋯</button></div>`};
+
+function hero(){const tot=sum(recs().map(r=>r.x)),L=lv(tot),[s,sh]=streak();
+const cats=Object.keys(C).map(c=>{const l=lv(sum(recs().filter(r=>r.c.includes(c)).map(r=>r.x)));return `<div class="cs"><span>${C[c][1]}</span><b>${C[c][0]}</b><small>مستوى ${l.l}</small><div class="bar sm"><i style="width:${l.c/l.n*100}%;background:var(${C[c][2]})"></i></div></div>`}).join('');
+return `<div class="hero"><div class="hr"><div class="bd">${L.l}</div><div><div class="tt">${ttl(L.l)}</div><div class="sb">${tot} نقطة خبرة</div></div><div class="sk">🔥 ${s} أيام<small>${sh?'🛡️ الدرع جاهز':'🛡️ الدرع مستخدم'}</small></div></div><div class="bar"><i style="width:${L.c/L.n*100}%"></i></div><div class="xl"><span>${L.c} / ${L.n}</span><span>المستوى ${L.l+1}</span></div><div class="cg">${cats}</div></div>`}
+
+function today(){const srt=a=>a.sort((x,y)=>(x.tm||'99').localeCompare(y.tm||'99')),m=srt(S.t.filter(t=>t.p)),s=srt(S.t.filter(t=>!t.p)),d=S.d[dk()]||{},nm=m.filter(t=>d[t.id]).length,all=S.t.every(t=>d[t.id]);
+return hero()+(all&&S.t.length?'<div class="c cel">🏆 أنجزت كل مهام اليوم. أحسنت أيها البطل!</div>':'')+`<div class="sc">⚔️ المهام الرئيسية<small>${nm} من ${m.length}</small></div>`+m.map(row).join('')+'<div class="sch">🏫 المدرسة: من 2:00 إلى 5:00 م</div>'+`<div class="sc">📜 المهام الجانبية</div>`+s.map(row).join('')+'<button class="b add" data-a="nt">＋ مهمة جديدة</button>'}
+
+function skills(){const d=S.d[dk()]||{};
+return '<div class="sc">🌟 المهارات</div>'+(S.k.length?S.k.map(s=>{const x=sum(recs().filter(r=>r.k===s.id).map(r=>r.x)),L=lv(x);
+return `<div class="c"><div class="sh2"><span class="ic">${e(s.i)}</span><div><b>${e(s.n)}</b><small>المستوى ${L.l} · ${x} نقطة</small></div><button class="mo" data-a="ds" data-id="${s.id}" aria-label="حذف">🗑️</button></div><div class="bar g"><i style="width:${L.c/L.n*100}%"></i></div>${s.t.map(u=>`<div class="t${d[u.id]?' d':''}" style="--s:var(--pri)"><button class="ck" data-a="tg" data-id="${u.id}" aria-label="إنجاز">✓</button><div class="tx"><b>${e(u.n)}</b><span class="m"><i>+20</i></span></div><button class="mo" data-a="du" data-id="${u.id}" aria-label="حذف">✕</button></div>`).join('')}<button class="b gh" data-a="nu" data-id="${s.id}">＋ مهمة للمهارة</button></div>`}).join(''):'<div class="c emp">🌱<p>لا توجد مهارات بعد.<br>أضف مهارة تريد تعلمها، ثم أضف مهامها بنفسك.</p></div>')+'<button class="b add" data-a="ns">＋ مهارة جديدة</button>'}
+
+function stats(){const N=14,D=[];for(let i=N-1;i>=0;i--)D.push({i,x:dx(dk(i)),n:Object.keys(S.d[dk(i)]||{}).length});
+const f=D.findIndex(v=>v.x>0),E=f<0?[]:D.slice(f),T=total()||1;
+const how=`<div class="c"><h3>🧭 كيف تتابع مهامك بشكل صحيح</h3><ol><li>اكتب المهمة بوضوح، وحدّد لها وقتاً ثابتاً.</li><li>ابدأ بالمهام الرئيسية، فهي الأعلى قيمة.</li><li>إن فاتك يوم فلا بأس، فالمهم العودة في اليوم التالي.</li><li>راجع أرقامك كل أسبوع، وعدّل ما يصعب عليك.</li></ol></div>`;
+const btn=`<div class="rw" style="justify-content:center"><button class="b gh" data-a="demo">تجربة ببيانات تجريبية</button><button class="b gh" data-a="rs">${rs?'اضغط مرة أخرى للتأكيد':'إعادة الضبط'}</button></div>`;
+if(E.length<2)return '<div class="sc">📈 الإحصائيات</div>'+how+'<div class="c emp">📊<p>تظهر المقارنة بعد يومين من الاستخدام.<br>جرّب البيانات التجريبية لمعاينة المخطط.</p></div>'+btn;
+const W=340,H=170,mx=Math.max(...E.map(v=>v.x),1),bw=W/E.length,Y=v=>H-8-(v/mx)*(H-30);
+const ma=E.map((v,j)=>{const w=E.slice(Math.max(0,j-6),j+1);return sum(w.map(q=>q.x))/w.length});
+const bars=E.map((v,j)=>{const up=j?v.x>=E[j-1].x:null,col=up===null?'var(--i)':up?'var(--up)':'var(--dn)';return `<rect x="${j*bw+bw*.18}" y="${Y(v.x)}" width="${bw*.64}" height="${H-8-Y(v.x)}" rx="5" fill="${col}" opacity=".85"/>`}).join('');
+const line=ma.map((v,j)=>(j*bw+bw/2)+','+Y(v)).join(' '),lx=(E.length-1)*bw+bw/2;
+const ref=ma[Math.max(0,ma.length-4)],cur=ma[ma.length-1],ch=(cur-ref)/(ref||1)*100,dir=ch>5?0:ch<-5?1:2;
+const A=[['▲','up','صاعد'],['▼','dnc','هابط'],['▬','fl','مستقر']][dir];
+const sen=[`أداؤك في صعود. متوسط آخر 7 أيام ارتفع ${Math.round(ch)}% عن قبل 3 أيام.`,`أداؤك في نزول. متوسط آخر 7 أيام انخفض ${Math.round(-ch)}% عن قبل 3 أيام. ابدأ بمهمة صغيرة اليوم.`,'أداؤك مستقر، والمتوسط ثابت تقريباً. جرّب رفع نقاطك قليلاً.'][dir];
+const chart=`<div class="c"><h3>📊 حركة نقاطك</h3><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="مخطط النقاط اليومية"><line x1="0" x2="${W}" y1="${H-8}" y2="${H-8}" stroke="var(--ln)"/>${bars}<polyline points="${line}" fill="none" stroke="var(--gold)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${lx}" cy="${Y(cur)}" r="5" fill="var(--gold)"/></svg><div class="lg"><span class="up">■ ارتفاع</span><span class="dnc">■ انخفاض</span><span class="fl">━ متوسط 7 أيام</span></div></div><div class="c tr"><div class="ar ${A[1]}">${A[0]}</div><div><b class="${A[1]}">الاتجاه العام: ${A[2]}</b><div>${sen}</div></div></div>`;
+let rows='';for(let j=D.length-1;j>=D.length-7;j--){const v=D[j],p=D[j-1],pc=Math.min(100,Math.round(v.n/T*100));let dl='—';if(p&&p.x>0){const g=Math.round((v.x-p.x)/p.x*100);dl=g>0?`<b class="up">▲ ${g}%</b>`:g<0?`<b class="dnc">▼ ${-g}%</b>`:'<b class="fl">▬ 0%</b>'}rows+=`<tr><td>${v.i?wd(v.i):'اليوم'}</td><td>${v.x}</td><td>${pc}%</td><td>${dl}</td></tr>`}
+const act=E.filter(v=>v.x>0),best=act.reduce((a,b)=>b.x>a.x?b:a),wor=act.reduce((a,b)=>b.x<a.x?b:a);
+const y=D[D.length-2],td=D[D.length-1],cmp=y&&y.x>0&&td.x>0?(td.x>=y.x?`أداؤك اليوم أعلى من أمس بنسبة ${Math.round((td.x-y.x)/y.x*100)}%`:`أداؤك اليوم أقل من أمس بنسبة ${Math.round((y.x-td.x)/y.x*100)}%`):'أنجز مهمة اليوم لتظهر مقارنتك مع أمس';
+const cx=Object.keys(C).map(c=>[c,sum(recs().filter(r=>r.c.includes(c)).map(r=>r.x))]),ct=sum(cx.map(v=>v[1]))||1;
+return '<div class="sc">📈 الإحصائيات</div>'+chart+`<div class="c"><h3>🗓️ مقارنة الأيام</h3><p style="margin:0 0 6px"><b>${cmp}</b></p><table><tr><th>اليوم</th><th>النقاط</th><th>الإنجاز</th><th>التغير</th></tr>${rows}</table></div><div class="c"><h3>🏅 أفضل يوم وأضعف يوم</h3><div>🏆 الأفضل: ${best.i?wd(best.i):'اليوم'} (${best.x} نقطة)</div><div>🌱 الأضعف: ${wor.i?wd(wor.i):'اليوم'} (${wor.x} نقطة)</div></div><div class="c"><h3>🧩 توزيع نقاطك</h3><div class="ds">${cx.map(v=>`<i style="width:${v[1]/ct*100}%;background:var(${C[v[0]][2]})"></i>`).join('')}</div><div class="lg">${cx.map(v=>`<span style="color:var(${C[v[0]][2]})">${C[v[0]][1]} ${C[v[0]][0]}: ${v[1]}</span>`).join('')}</div></div>`+how+btn}
+
+function render(){const v={t:today,k:skills,s:stats}[tab]();$('#app').innerHTML='<div class="hd"><h1>⚔️ رحلة البطل</h1><button class="mo" data-a="th" aria-label="تبديل المظهر">🌓</button></div>'+v;document.querySelectorAll('.nv button').forEach(b=>b.classList.toggle('on',b.dataset.tab==tab))}
+
+function sheet(h,f,l){const s=$('#sh');s.innerHTML=`<div class="sp">${h}<div class="rw"><button class="b gh" data-a="x">إلغاء</button>${f?`<button class="b" id="ok">${l||'حفظ'}</button>`:''}</div></div>`;s.classList.add('on');if(f)$('#ok').onclick=()=>{f();close()}}
+const close=()=>$('#sh').classList.remove('on');
+
+function tf(t){t=t||{n:'',p:0,tm:'',x:20,c:[]};return `<h3>${t.id?'تعديل المهمة':'مهمة جديدة'}</h3><label>الاسم</label><input id="fn" value="${e(t.n)}"><label>النوع</label><select id="fp"><option value="1"${t.p?' selected':''}>رئيسية</option><option value="0"${t.p?'':' selected'}>جانبية</option></select><label>الوقت (اتركه فارغاً لطوال اليوم)</label><input id="ft" type="time" value="${t.tm}"><label>الأهمية</label><select id="fx">${[15,20,25,30,50].map(v=>`<option value="${v}"${v==t.x?' selected':''}>${v} نقطة</option>`).join('')}</select><label>التصنيف</label><div class="cc">${Object.keys(C).map(c=>`<label class="pl"><input type="checkbox" value="${c}"${t.c.includes(c)?' checked':''}>${C[c][1]} ${C[c][0]}</label>`).join('')}</div>`}
+function saveT(id){const n=$('#fn').value.trim();if(!n)return;const o={n,p:+$('#fp').value,tm:$('#ft').value,x:+$('#fx').value,c:[...document.querySelectorAll('.cc input:checked')].map(i=>i.value)};if(!o.c.length)o.c=['r'];if(id)Object.assign(S.t.find(t=>t.id===id),o);else S.t.push({id:'t'+Date.now(),...o});sv();render()}
+function demo(){for(let i=13;i>=1;i--){const k=dk(i);if(S.d[k])continue;const d=S.d[k]={},p=Math.min(.95,.3+(14-i)*.04+Math.random()*.25);S.t.forEach(t=>{if(Math.random()<p)d[t.id]={x:t.x,c:t.c,m:t.p}})}sv();render()}
+
+document.addEventListener('click',ev=>{const b=ev.target.closest('[data-a]');if(!b){if(ev.target.id==='sh')close();return}const a=b.dataset.a,id=b.dataset.id;
+if(a=='tg')tg(id);
+else if(a=='tab'){tab=b.dataset.tab;rs=0;render();scrollTo(0,0)}
+else if(a=='nt')sheet(tf(),()=>saveT());
+else if(a=='ed')sheet(tf(S.t.find(t=>t.id===id))+`<button class="b dn" data-a="dt" data-id="${id}">حذف المهمة</button>`,()=>saveT(id));
+else if(a=='dt'){S.t=S.t.filter(t=>t.id!==id);sv();close();render()}
+else if(a=='x')close();
+else if(a=='ns')sheet('<h3>مهارة جديدة</h3><label>اسم المهارة</label><input id="sn"><label>الأيقونة</label><div class="cc">'+['📘','🎨','💻','🗣️','🎸','✍️','🧩','🏊'].map((v,j)=>`<label class="pl"><input type="radio" name="si" value="${v}"${j?'':' checked'}>${v}</label>`).join('')+'</div>',()=>{const n=$('#sn').value.trim();if(!n)return;S.k.push({id:'k'+Date.now(),n,i:document.querySelector('[name=si]:checked').value,t:[]});sv();render()});
+else if(a=='nu')sheet('<h3>مهمة جديدة للمهارة</h3><label>اسم المهمة</label><input id="un">',()=>{const n=$('#un').value.trim();if(!n)return;S.k.find(s=>s.id===id).t.push({id:'u'+Date.now(),n});sv();render()});
+else if(a=='du'){S.k.forEach(s=>s.t=s.t.filter(u=>u.id!==id));sv();render()}
+else if(a=='ds')sheet('<h3>حذف المهارة؟</h3><p>تبقى النقاط التي كسبتها في مستواك العام.</p>',()=>{S.k=S.k.filter(s=>s.id!==id);sv();render()},'حذف');
+else if(a=='demo')demo();
+else if(a=='rs'){if(rs){S={t:S.t,d:{},k:S.k};sv();rs=0}else rs=1;render()}
+else if(a=='th'){const r=document.documentElement,cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');r.dataset.theme=cur=='dark'?'light':'dark';try{localStorage.setItem('rpgth',r.dataset.theme)}catch(x){}}
+});
+render();
+</script>
+<script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('hero-sw.js').catch(()=>{}));</script>
+</body>
+</html>
